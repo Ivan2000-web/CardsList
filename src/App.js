@@ -1,25 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react"
+import { Container, Grid, Typography } from "@mui/material"
+import CardComponent from "./components/CardComponent"
+import Data from "./Data.json"
 
-function App() {
+export default function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <>
+      <Container maxWidth="lg">
+        <Typography variant='h4' align='center' style={{ marginTop: "50px" }}>
+          Material UI Responsive Card
+        </Typography>
+        <Grid container spacing={5} style={{ marginTop: "20px" }}>
+          {Data.map((result, index) => (
+            <Grid item xs={12} sm={4} ms={4} key={index}>
+              <CardComponent result={result} />
+            </Grid>
+          ))}
+        </Grid>
+      </Container>
+    </>
+  )
 }
-
-export default App;

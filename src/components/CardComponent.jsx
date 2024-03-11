@@ -1,8 +1,10 @@
-import React from "react";
-import { Card, CardMedia, CardActions, Button, CardContent, Typography } from '@mui/material';
+import React from "react"
+import { Card, CardMedia, CardActions, Button, CardContent, Typography } from '@mui/material'
+import { Link } from 'react-router-dom'
 
 export default function CardComponent({ result }) {
   return (
+    <>
     <Card sx={{ maxWidth: 345 }} style={{ padding: "10px", marginBottom: "30px" }}>
       <CardMedia
         sx={{ height: 140 }}
@@ -19,10 +21,11 @@ export default function CardComponent({ result }) {
         </Typography>
       </CardContent>
       <CardActions>
-        <Button variant="outlined" size="medium">
+        <Button variant="outlined" size="medium" component={Link} to={`/description/${result.id}`}>
           Read Me
         </Button>
       </CardActions>
     </Card>
+    </>
   )
 }
